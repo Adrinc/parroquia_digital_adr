@@ -6,11 +6,9 @@ import { useLocation } from 'react-router-dom';
 const TopMenu = () => {
     const links = [
         { name: 'HOME', url: '/', alterurl:"/#home" },
-        { name: 'ACP', url: '/#acp', alterurl:"/acp" },
-        { name: 'PLAN', url: '/#plan', alterurl:"/#plan" },
-        { name: 'HOW IT WORKS', url: '/howitworks', alterurl:"/howitworks" },
-        { name: 'SUPPORT', url: '/support', alterurl:"/support/selfservice" },
-        { name: 'ABOUT US', url: '/about', alterurl:"/about" },
+        { name: 'CONÓCENOS', url: '/#acp', alterurl:"/acp" },
+        { name: 'CURSOS', url: '/#plan', alterurl:"/#plan" },
+        { name: 'CONTÁCTANOS', url: '/howitworks', alterurl:"/howitworks" },
        /*  { name: 'SERVICES', url: '/selfservices', alterurl:"/selfservices" }, */
         
     ];

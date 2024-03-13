@@ -119,12 +119,12 @@
     width: 100%;
   }
   .selected-link-mobile {
-    color: #efa930 !important;
-    text-shadow:  2px 2px 1px #2c1005;
+    color: #44210d !important;
+/*     text-shadow:  2px 2px 1px #2c1005; */
   }
   .selected-link {
-    color: #efa930 !important;
-    text-shadow:  2px 2px 1px #2c1005;
+    color: #44210d !important;
+  /*   text-shadow:  2px 2px 1px #2c1005; */
   }
 
 
