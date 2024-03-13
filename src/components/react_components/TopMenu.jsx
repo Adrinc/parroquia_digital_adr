@@ -105,7 +105,6 @@ const TopMenu = () => {
                     </div>
                     <div className='flex flex-row justify-center p-2'>
                         <img
-                        /* loading="lazy" */
                         src="/image/logos/logo1.svg"
                         className={TopMenuStyle.imagemobile}
                         alt='uwifi logo'
@@ -126,30 +125,26 @@ const TopMenu = () => {
                   </a>
                     ))}
                  
-                    <div className="flex flex-row justify-center  items-center align-middle  w-[100%] mt-6 ">
-                      <a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a>
-                      </div>
+                   
                     </nav>
-                      <img
-                    alt='small chatbot'
-                    src="/image/chatbotsmall.svg"
-                    className={TopMenuStyle.chatbot2}
-                />
+      
                 </div>
                 )}
 
             <div className={TopMenuStyle.mainContainer}>
             
 
-                <img
-                 
-                 src="/image/logos/logo1.svg"
-                    alt='uwifi logo'
-                    width="100" height="50"
-                    className={TopMenuStyle.image}
-                />
-                <span className={TopMenuStyle.description}><span className={TopMenuStyle.boltext}>CALL NOW! </span> (123)456-789-000</span>
-         
+            <div className="flex flex-row">
+
+<img
+ 
+ src="/image/logos/logo1.svg"
+    alt='uwifi logo'
+    width="100" height="50"
+    className={TopMenuStyle.image}
+/>
+<p className={TopMenuStyle.description}>Parroquia digital</p>
+</div>
 
                 {isMobile && (
                         <button aria-label="Burger button" className="navbar-burger self-center md:hidden" onClick={toggleMenu}>
@@ -174,14 +169,8 @@ const TopMenu = () => {
                     ))}
                 </nav>
 
-                <div className="hidden md:block ">
-                    <div className="flex items-center justify-end"><a className="inline-block buttom-shadow py-2 px-4 text-xl font-bold leading-5 text-green-50 buttom-text-shadow drop-shadow-sm bg-green-500  hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 rounded-md" href="https://uwifi-web.vercel.app/login">Login</a></div>
-                </div>
-                <img
-                    alt='small chatbot'
-                    src="/image/chatbotsmall.svg"
-                    className={TopMenuStyle.chatbot}
-                />
+             
+            
             </div>
         </>
     );

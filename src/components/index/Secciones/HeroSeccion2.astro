@@ -6,13 +6,13 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 <section id="#bestinternet">
 
 	
-	<main class="flex flex-row gap-4 box-border">
+	<main class="flex flex-row flex-1 gap-4 box-border">
 		<div class="columna-izquierda" >
 
 			
-				<div class="gradient-text">hola</div>
-				<div><span class="subtitle">mundo  <img class="image" loading="lazy" alt="uwifi white logo" srcset="faviui.png"/></span></div>
-				<p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto reiciendis quaerat et quasi, eius adipisci, maiores iusto, qui nulla vitae enim fugit a nisi? Cumque sequi suscipit quasi libero atque.</p>
+				<div class="gradient-text">Nuestra Red Social Interdiocesana</div>
+				<div><span class="subtitle">Un lugar de todos para todos</div>
+				<p class="description">Los tiempos cambian y debemos adaptarnos. Como Iglesia, colaboramos con instituciones mexicanas para crear una iniciativa de conexión y formación en línea. Únete seleccionando una institución y registrándote.</p>
 			
 			<div class=" botones flex flex-row content-start max-md:justify-center">
 				<BuyOrApplyFree/>
@@ -20,11 +20,11 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 			
 		</div>
 
-		<div class="flex justify-center items-center relative">
+		<div class="flex flex-col justify-center items-center relative  w-full">
 			
 		
-			<div  class="moden"><Moden client:visible transition:persist/></div>
-
+				<img class="imagen" src="/public/image/digitalsocialred.jpg" alt="">
+		
 		</div>
 	</main>
 </section>
@@ -49,6 +49,7 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 			flex-direction: column;
 			justify-content: space-between;
 			gap: 50px;
+			max-width: 50%;
 
 		}
 
@@ -104,10 +105,13 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 			
 			
 
-			.moden{
+			.imagen{
 			width: clamp(280px, 50vw, 600px);
 			height: clamp(280px, 50vw, 600px);
-		
+			border-radius: 10px;
+			border:  2px solid var(--primary-color);
+			box-shadow: 0px 0px 10px 0px var(--primary-color);
+			box-shadow: inset 0px 0px 50px 0px #e8b235b3;
 			}
 			
 			.description {
