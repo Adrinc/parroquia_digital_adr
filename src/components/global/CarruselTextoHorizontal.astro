@@ -1,0 +1,101 @@
+<div class="content-wrapper">
+    <span class="carrusel">
+
+    <!-- https://hotels-web-one.vercel.app/login de hoteles -->
+
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+  <img src="/image/uwifi_stroke.png" alt="uwifi">
+  <button class="check-coverage-btn">BUY NOW</button>
+
+  
+</span>
+</div>
+
+
+
+
+<style>
+	
+	.carrusel{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: flex-start;
+	align-content: flex-start;
+
+	white-space: nowrap;
+  	position: relative;
+	gap: 50px;
+	animation: marquee 50s linear infinite;
+
+	}
+	.content-wrapper {
+	
+	  border-top: 1px solid var(--tertiary-color);
+	  border-bottom: 1px solid var(--tertiary-color);
+	
+	  padding: 5px;
+	  margin-bottom: 50px;
+	}
+	img {
+	  width: 70px;
+	  height: 70px;
+	  object-fit: contain;
+	}
+	
+
+	@keyframes marquee {
+	0% { left: 100%; }
+	100% { left: -100%; }
+	}
+
+  
+	.check-coverage-btn {
+	  color: var(--primary-text-color);
+	  text-transform: uppercase;
+	  align-self: stretch;
+	  flex-grow: 1;
+	  flex-basis: auto;
+	  font: 300 24px Inter, sans-serif;
+	  background: none;
+	  border: none;
+	  cursor: pointer;
+	}
+  
+	@media  screen and (height< 400px) {
+		.content-wrapper {
+	  padding-right: 153px;
+	  border-top: 1px solid var(--tertiary-color);
+	  border-bottom: 1px solid var(--tertiary-color);
+	  padding: 20px;
+	  margin-top: clamp(40px, 50vh, 200px);
+	  margin-botom: clamp(40px, 50vh, 200px);
+	}
+	
+	}
+	@media (max-width: 900px) 
+	{
+		
+	}
+  
+	
+  </style>

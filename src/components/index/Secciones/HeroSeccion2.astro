@@ -1,0 +1,172 @@
+---
+import Moden from '../../Scene3D/ModenScene/Main3D';
+import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
+
+---
+<section id="#bestinternet">
+
+	
+	<main class="flex flex-row gap-4 box-border">
+		<div class="columna-izquierda" >
+
+			
+				<div class="gradient-text">hola</div>
+				<div><span class="subtitle">mundo  <img class="image" loading="lazy" alt="uwifi white logo" srcset="faviui.png"/></span></div>
+				<p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto reiciendis quaerat et quasi, eius adipisci, maiores iusto, qui nulla vitae enim fugit a nisi? Cumque sequi suscipit quasi libero atque.</p>
+			
+			<div class=" botones flex flex-row content-start max-md:justify-center">
+				<BuyOrApplyFree/>
+			</div>
+			
+		</div>
+
+		<div class="flex justify-center items-center relative">
+			
+		
+			<div  class="moden"><Moden client:visible transition:persist/></div>
+
+		</div>
+	</main>
+</section>
+		  
+	<style>
+
+
+	
+		section{
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding-left: clamp(0px, 5vw, 100px);
+			padding-right: clamp(0px, 5vw, 100px);
+			margin-bottom: 100px;
+
+
+		}
+		.columna-izquierda{
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			gap: 50px;
+
+		}
+
+			.title, .best, .subtitle{
+			color: var(--primary-text-color);
+			font-size: clamp(40px, 5vw, 60px);
+			font-weight: 400;
+			letter-spacing: 2px;
+			text-align: left;
+			word-spacing: 5px;
+			text-wrap: balance;
+			}
+			
+			.description{
+				font-family: var(--font-family-secondary);
+			}
+			.gradient-text{
+				font-size: clamp(40px, 5vw, 60px);
+			font-weight: 800;
+			letter-spacing: 2px;
+			text-align: left;
+			word-spacing: 5px;
+			text-wrap: balance;
+			
+
+			background: linear-gradient(270deg, var(--primary-color)2.9%, var(--secondary-color) 100%);
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			}
+	
+			.subtitle{
+			
+				font-weight: 300;
+				line-height: 160%;
+				margin-top: 50px;
+			}
+		
+		  
+			.image {
+			display: inline-block;
+			aspect-ratio: 1.1;
+		
+			width: clamp(2.5rem, 5vw, 5.3rem); 
+			height: clamp(2.5rem, 5vw, 5.3rem);
+			margin-bottom: 2rem;
+			}
+
+			.icono {
+			display: inline-block;
+			aspect-ratio: 1.1;
+			}
+			
+			
+
+			.moden{
+			width: clamp(280px, 50vw, 600px);
+			height: clamp(280px, 50vw, 600px);
+		
+			}
+			
+			.description {
+			  color: var(--primary-text-color);
+			  font-weight: 300;
+			  text-wrap: pretty;
+			  font-size: clamp(1rem, 3vw, 2rem);
+			}
+
+			.cta-text {
+			  justify-content: center;
+			  color: var(--primary-text-color);
+			  text-align: center;
+			  align-self: center;
+			  font-size: clamp(14px, 1.5vw, 1.5rem);
+			  font-weight: 200;
+			}
+	
+			@media (max-width: 900px) {
+				main {
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+				}
+			.moden{
+			width: 100%;
+			height: clamp(280px, 50vw, 500px);
+	
+			}
+			.title, .best, .subtitle, .description, .cta-text{
+				text-align: center;
+				align-self: center;
+			}
+			.botones{
+				justify-content: center;
+			}
+
+			.green-ball-blured{
+		position: absolute;
+		top: 0;
+		left: 10%;
+		width: clamp(350px, 5vw, 550px);
+		height: clamp(350px, 5vw, 550px);
+		
+	}
+
+			}
+			@media  screen and (height< 450px) {
+				section{
+		
+				
+					margin-bottom: clamp(200px, 50vh, 300px);
+				}
+				.moden{
+		
+			height: clamp(150px, 50vw, 400px);
+	
+			}
+			}
+			
+	
+ </style>
