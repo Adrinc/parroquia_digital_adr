@@ -5,11 +5,17 @@ import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 ---
 <section id="home">
 	 <video class="block md:hidden" autoplay muted loop id="myVideo" transition:persist>
-		<source src="videos/u-wifi-opener-prod-mobile.mp4" type="video/mp4">
+		<source src="videos/iglesia6.mp4" type="video/mp4">
 	</video>
 	<video class="hidden md:block" autoplay muted loop id="myVideoMobile" transition:persist>
-		<source src=`/videos/asencion.mp4` type="video/mp4">
+		<source src=`/videos/iglesia7.mp4` type="video/mp4">
 	</video>
+
+    <div class="video-overlay">
+        <h1 class="video-title">Bienvenido a nuestra</h1>
+        <h2 class="video-subtitle">"Parroquia Digital"</h2>
+        <h3 class="video-subtitle">Redes sociales diocesanas de la Iglesia Católica Mexicana</h3>
+    </div>
 
 <div class="botones-back-column">
 	<div class="botones-back">
@@ -48,7 +54,7 @@ import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 			justify-content: flex-end;
 			align-items: center;
 		
-        	
+     
 		
 		
 		}
@@ -62,7 +68,7 @@ import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 			border-radius: 0 50px 50px 0;
 			padding: 16px;
 			margin-bottom: clamp(10px, 5vw, 80px);
-		
+			border: 2px solid #b68c66;
 		}
 		.texto-or{
 			font-size: clamp(10px, 20vw, 24px);
@@ -75,9 +81,34 @@ import BuyOrApplyFree from "../../global/BuyOrApplyFree.astro";
 		object-fit: cover;
 		z-index: -1;
 		}
-		main{
-			padding-left: clamp(0px, 5vw, 100px);
-			padding-right: clamp(0px, 5vw, 100px);
+		.video-overlay {
+		position: absolute;
+		top: 80%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		z-index: 1;
+		}
+
+		.video-title {
+			font-size: 50px; /* Puedes ajustar el tamaño según tu diseño */
+			
+			font-weight: 700;
+			color: var(--tertiary-text-color);
+			text-shadow: #bd802f 2px 2px 2px;
+		}
+
+		h2.video-subtitle {
+			font-size: 40px;
+			font-weight: 500;
+			color: var(--primary-text-color);
+			text-shadow: #bd802f 2px 2px 2px;
+		}
+		h3.video-subtitle {
+			font-size: 35px;
+			font-weight: 500;
+			color: #0f829a;
+			text-shadow: #000000 2px 2px 2px;
 		}
 
 	

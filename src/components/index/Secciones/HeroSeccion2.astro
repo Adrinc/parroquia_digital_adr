@@ -6,12 +6,12 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 <section id="#bestinternet">
 
 	
-	<main class="flex flex-row flex-1 gap-4 box-border">
+	<main>
 		<div class="columna-izquierda" >
 
 			
 				<div class="gradient-text">Nuestra Red Social Interdiocesana</div>
-				<div><span class="subtitle">Un lugar de todos para todos</div>
+				<div class="subtitle">Un lugar de todos para todos</div>
 				<p class="description">Los tiempos cambian y debemos adaptarnos. Como Iglesia, colaboramos con instituciones mexicanas para crear una iniciativa de conexión y formación en línea. Únete seleccionando una institución y registrándote.</p>
 			
 			<div class=" botones flex flex-row content-start max-md:justify-center">
@@ -20,12 +20,10 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 			
 		</div>
 
-		<div class="flex flex-col justify-center items-center relative  w-full">
-			
+	
+				<img class="imagen" src="/image/paloma_adorno_out2.png" alt="">
 		
-				<img class="imagen" src="/public/image/digitalsocialred.jpg" alt="">
 		
-		</div>
 	</main>
 </section>
 		  
@@ -34,15 +32,23 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 
 	
 		section{
-			position: relative;
+		
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			padding-left: clamp(0px, 5vw, 100px);
 			padding-right: clamp(0px, 5vw, 100px);
 			margin-bottom: 100px;
+			height: 90vh;
+			width: 100vw;
 
-
+		}
+		main {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: 100%;
+		gap: 50px;
 		}
 		.columna-izquierda{
 			display: flex;
@@ -50,63 +56,63 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 			justify-content: space-between;
 			gap: 50px;
 			max-width: 50%;
-
+			max-height: 90vh;
+			border: 10px solid transparent;
+ 			padding: 50px;
+	/* 		background-color: rgb(248, 9, 9); */
+			border-radius: 500px 500px 0px 0px;
+			
+			border: 5px solid #b4820eb3;
+/* 		border-image: url("/image/frames/borde1.png") 10% round; */
+		background-image: url("/image/textures/texture6.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		mask-image: url("/image/textures/texture6.png");
+  		mask-clip: border-box;
+		padding-top: 80px;
+		
+		
 		}
 
-			.title, .best, .subtitle{
-			color: var(--primary-text-color);
-			font-size: clamp(40px, 5vw, 60px);
-			font-weight: 400;
-			letter-spacing: 2px;
-			text-align: left;
-			word-spacing: 5px;
-			text-wrap: balance;
-			}
-			
+	
 			.description{
 				font-family: var(--font-family-secondary);
 			}
 			.gradient-text{
-				font-size: clamp(40px, 5vw, 60px);
+				font-size: clamp(40px, 5vw, 45px);
 			font-weight: 800;
-			letter-spacing: 2px;
-			text-align: left;
-			word-spacing: 5px;
-			text-wrap: balance;
+		
+			text-align: center;
+			
+			text-wrap: pretty;
+			max-width: 500px;
+			align-self: center;
 			color: var(--secondary-text-color);
 			}
 	
 			.subtitle{
+				color: var(--primary-text-color);
+			font-size: clamp(40px, 5vw, 45px);
+			font-weight: 400;
+				
+			text-align: center;
 			
-				font-weight: 300;
-				line-height: 160%;
-				margin-top: 50px;
+			text-wrap: balance;
 			}
 		
 		  
-			.image {
-			display: inline-block;
-			aspect-ratio: 1.1;
-		
-			width: clamp(2.5rem, 5vw, 5.3rem); 
-			height: clamp(2.5rem, 5vw, 5.3rem);
-			margin-bottom: 2rem;
-			}
-
-			.icono {
-			display: inline-block;
-			aspect-ratio: 1.1;
-			}
-			
+	
 			
 
 			.imagen{
-			width: clamp(280px, 50vw, 600px);
-			height: clamp(280px, 50vw, 600px);
-			border-radius: 10px;
-			border:  2px solid var(--primary-color);
-			box-shadow: 0px 0px 10px 0px var(--primary-color);
-			box-shadow: inset 0px 0px 50px 0px #e8b235b3;
+			width: 100%;
+			height: 100%;
+			border-radius: 25px;
+	/* 		border:  10px solid var(--primary-color);
+			border-image: url("/image/frames/borde1.png") 10% round;
+ */
+			
 			}
 			
 			.description {
@@ -130,6 +136,11 @@ import BuyOrApplyFree from '../../global/BuyOrApplyFree.astro';
 				flex-direction: column;
 				align-items: center;
 				gap: 1rem;
+				}
+				.columna-izquierda{
+					max-width: 100%;
+					max-height: 100%;
+					padding-top: 100px;
 				}
 			.moden{
 			width: 100%;

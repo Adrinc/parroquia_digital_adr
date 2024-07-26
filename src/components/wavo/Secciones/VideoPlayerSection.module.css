@@ -1,0 +1,130 @@
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: clamp(0px, 10vw, 100px);
+    width: 100%;
+    margin-top: 80px;
+    background-color: rgb(17, 17, 17);
+  }
+  
+  ul {
+    list-style: none;
+    margin-top: 5%;
+    padding: 0;
+    mask-image: linear-gradient(to bottom, transparent, black 5%, black 90%, rgba(0, 0, 0, 0.705));
+    overflow: auto;
+  }
+  
+  .rowDosColumnas {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    align-content: flex-start;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+  }
+  
+  .columnaIzquierda {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-center;
+    align-content: flex-start;
+    width: 70%;
+    height: 80vh;
+  }
+  
+  .columnaDerecha {
+    position: relative;
+    display: flex;
+    flex: 10;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+    width: 30%;
+    height: 80vh;
+    gap: 20px;
+    padding: 24px;
+    background-color: rgb(15, 15, 15);
+  }
+  
+  .videoListHorizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent line break */
+  }
+  
+  .videoListHorizontal ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; /* Add space between each video */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    section {
+      gap: 1rem;
+    }
+  
+    .contenedor {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .row_dos_columnas {
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      gap: 1rem;
+    }
+  
+    .columnaizquierda {
+      width: 100%;
+      height: 100%;
+      gap: 1rem;
+    }
+  
+    .columnaderecha {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .lista {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      gap: 1rem;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  @media screen and (height < 450px) {
+    section {
+      margin-bottom: clamp(50px, 50vh, 100px);
+    }
+  }
+  
