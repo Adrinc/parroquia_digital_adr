@@ -9,7 +9,7 @@ const TopMenu = () => {
         { name: 'CONÓCENOS', url: '/#acp', alterurl:"/acp" },
         { name: 'CURSOS', url: '/#plan', alterurl:"/#plan" },
         { name: 'CONTÁCTANOS', url: '/howitworks', alterurl:"/howitworks" },
-        { name: 'WAVO', url: '/wavo', alterurl:"/wavo" },
+        { name: 'VIDEOS', url: '/wavovideos', alterurl:"/wavovideos" },
        /*  { name: 'SERVICES', url: '/selfservices', alterurl:"/selfservices" }, */
         
     ];

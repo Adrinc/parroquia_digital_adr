@@ -1,0 +1,190 @@
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: clamp(0px, 10vw, 100px);
+  width: 100%;
+  margin-top: 80px;
+  background-color: rgb(17, 17, 17);
+  /* background image bg1.jpg  from public image backgrounds*/
+
+  z-index: 1;
+}
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to top, #000000,#000000a5,#000000 ), url('/image/backgrounds/bg1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  z-index: 0;
+  filter: blur(5px);
+}
+
+ul {
+  list-style: none;
+  margin-top: 5%;
+  padding: 0;
+  mask-image: linear-gradient(to bottom, transparent, black 5%, black 90%, rgba(0, 0, 0, 0.705));
+  overflow: auto;
+}
+
+.rowDosColumnas {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+}
+
+.columnaIzquierda {
+  position:relative;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: space-start;
+  align-items: center;
+  align-content: center;
+  width: 70%;
+  height: 100vh;
+  padding: 0px 24px;
+
+  margin-right: 20px;
+  background-color: transparent;
+  z-index: 1;
+  
+}
+.barraEffect {
+  position: absolute;
+  top: -200px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+ /* Background gradient green black, from top (green) to bottom (black transparent) */
+  background: linear-gradient(to bottom, rgba(62, 62, 62, 0.552), rgba(0, 0, 0, 0));
+  z-index: -1;
+  border: 5px double #008a5a;
+}
+
+.columnaDerecha {
+  position: relative;
+  display: flex;
+  flex: 10;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  align-content: center;
+  width: 30%;
+  height: 80vh;
+  gap: 20px;
+
+  background-color: rgb(15, 15, 15);
+}
+
+.tituloContenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 80px;
+  color: #ffffff; 
+
+  border-radius: 10px; 
+  width: 100%; 
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); 
+  background-color: #034e30;
+}
+
+.titulo {
+  
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center; 
+}
+
+
+.videoListHorizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent line break */
+}
+
+.videoListHorizontal ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Add space between each video */
+  padding: 0;
+  margin: 0;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  width: 100%;
+}
+
+
+
+@media (max-width: 768px) {
+  section {
+    gap: 1rem;
+  }
+
+  .contenedor {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .row_dos_columnas {
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+  }
+
+  .columnaIzquierda {
+    width: 100%;
+    height: 100%;
+    gap: 1rem;
+  }
+
+  .columnaDerecha {
+    width: 100%;
+    height: 100%;
+  }
+
+  .lista {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@media screen and (height < 450px) {
+  section {
+    margin-bottom: clamp(50px, 50vh, 100px);
+  }
+}

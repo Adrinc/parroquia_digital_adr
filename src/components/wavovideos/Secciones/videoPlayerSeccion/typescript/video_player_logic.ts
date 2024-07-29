@@ -1,9 +1,9 @@
+import { SupaBaseConection } from '../../../../../supabase/supabase';
 import { createClient } from '@supabase/supabase-js';
 import { atom } from 'nanostores';
 
-// Create a single supabase client for interacting with your database
-export class SupaBaseConection {
-   videoSelected:any = atom('./videos/iglesia5.mp4');
+export class VideoPlayerLogic {
+  videoSelected:any = atom('./videos/iglesia5.mp4');
   supabaseUrl: string = 'https://cbl-supabase.virtalus.cbluna-dev.com/';
   anonKey: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ewogICJyb2xlIjogImFub24iLAogICJpc3MiOiAic3VwYWJhc2UiLAogICJpYXQiOiAxNzE1MjM4MDAwLAogICJleHAiOiAxODczMDA0NDAwCn0.qKqYn2vjtHqKqyt1FAghuIjvNsyr9b1ElpVfvJg6zJ4';
   redirectUrl: string = this.supabaseUrl + '/change-pass/change-password/token';
@@ -17,12 +17,12 @@ export class SupaBaseConection {
 
   getVideoCategories = async () => {
   
-    const { data, error } = await this.supabase.from('genre_ad').select();
-    if (error) {
+    const { data, error } = await this.supabase.from('genre_ad').select().eq('visible', true);
+/*     if (error) {
       console.log(error);
     } else {
       console.log(data);
-    }
+    } */
     return data;
   }
   //crea una funcion que recibe un id de categoria y devuelve los videos de esa categoria de la tabla "ad"
@@ -34,11 +34,11 @@ export class SupaBaseConection {
     }).select();
 
   /*   const { data, error } = await this.supabase.from('ad_in_gnre_view').select().eq('genre_id', id); */
-    if (error) {
+/*     if (error) {
       console.log(error);
     } else {
       console.log(data);
-    }
+    } */
     return data;
   }
   
