@@ -1,9 +1,9 @@
 import React from 'react';
 import LCstyle from '../css/listaCategorias.module.css';
 
-const ListaCategorias = ({ title, imageUrl, isSelected, onClick }) => {
+const ListaCategorias = ({ title, imageUrl, isSelected }) => {
   return (
-    <div className={`${LCstyle.hitbox} ${isSelected ? LCstyle.selectedHitbox : ''}`} onClick={onClick}>
+
       <div
         className={`${LCstyle.tarjeta} ${isSelected ? LCstyle.selectedTarjeta : ''}`}
         style={{
@@ -11,10 +11,10 @@ const ListaCategorias = ({ title, imageUrl, isSelected, onClick }) => {
         }}
       >
         <div className={LCstyle.textContent}>
-          <h1 className={`${isSelected ? LCstyle.selectedText : ''}`}>{title}</h1>
+          <p className={`${isSelected ? LCstyle.selectedText : ''}`}>{title}</p>
         </div>
       </div>
-    </div>
+
   );
 };
 

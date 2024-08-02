@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import VideoPlayerSeccion from '../components/wavovideos/Secciones/videoPlayerSeccion/WavoVideosSeccion.jsx';
+import VideoPlayerSectionMain from '../components/wavovideos/Secciones/videoPlayerSeccion/WavoVideoMain.jsx';
 
 ---
 
 <Layout title="WavoPlayer">
 	
-	<VideoPlayerSeccion client:load />
+	<VideoPlayerSectionMain client:only="react"/>
 </Layout>
 
 

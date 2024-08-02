@@ -1,4 +1,4 @@
-import { SupaBaseConection } from '../../../../../supabase/supabase';
+
 import { createClient } from '@supabase/supabase-js';
 import { atom } from 'nanostores';
 
@@ -18,7 +18,7 @@ export class VideoPlayerLogic {
   getVideoCategories = async () => {
   
     const { data, error } = await this.supabase.from('genre_ad').select().eq('visible', true);
-/*     if (error) {
+  /*   if (error) {
       console.log(error);
     } else {
       console.log(data);
@@ -34,6 +34,16 @@ export class VideoPlayerLogic {
     }).select();
 
   /*   const { data, error } = await this.supabase.from('ad_in_gnre_view').select().eq('genre_id', id); */
+/*     if (error) {
+      console.log(error);
+    } else {
+      console.log(data);
+    } */
+    return data;
+  }
+  getAllVideosList = async () => {
+  
+    const { data, error } = await this.supabase.from('ad_in_gnre_view').select().eq('visible', true).order('genre_name', { ascending: true });
 /*     if (error) {
       console.log(error);
     } else {

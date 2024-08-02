@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react';
+import VideoStyle from '../css/reproductorVideo.module.css';
 
 export default function ReproductorVideoReact({ url }) {
     const videoRef = useRef(null);
   
     
     useEffect(() => {
-        console.log(url);
+     
         if (videoRef.current) {
             videoRef.current.src = url;
             videoRef.current.load();
@@ -20,13 +21,7 @@ export default function ReproductorVideoReact({ url }) {
             autoPlay 
             muted 
             loop 
-            style={{
-                position: 'relative',
-                width: '100%',
-                height: '75%',
-                objectFit: 'cover',
-                zIndex: 1
-            }} 
+            className={VideoStyle.videoPlayer}
         />
     );
 }
