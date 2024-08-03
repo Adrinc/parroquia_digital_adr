@@ -5,6 +5,8 @@ import ListaVideos from './widgets/ListaVideos.jsx';
 import ReproductorVideoReact from './widgets/ReproductorVideoReact.jsx';
 import { VideoPlayerLogic } from './typescript/video_player_logic.ts';
 import VPSstyle from './css/wavoVideosSeccion.module.css'; 
+import IonicBoton from './widgets/ionic/IonicBoton.jsx';
+import ModalExample from './widgets/ionic/IonicModal.tsx';
 
 const supa = new VideoPlayerLogic();
 
@@ -65,8 +67,10 @@ const VideoPlayerSection = () => {
   return (
     <section className={VPSstyle.section}>
       <div className={VPSstyle.background} />
+    {/*   <IonicBoton /> */}
       <div className={VPSstyle.rowDosColumnas}>
         <div className={VPSstyle.columnaIzquierda}>
+  
         
           <div className={VPSstyle.tituloContenedor}>
             <p className={VPSstyle.titulo}>Categorias</p>

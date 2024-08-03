@@ -18,15 +18,14 @@ export class VideoPlayerLogic {
   getVideoCategories = async () => {
   
     const { data, error } = await this.supabase.from('genre_ad').select().eq('visible', true);
-  /*   if (error) {
+/*     if (error) {
       console.log(error);
     } else {
       console.log(data);
     } */
     return data;
   }
-  //crea una funcion que recibe un id de categoria y devuelve los videos de esa categoria de la tabla "ad"
-  
+
   getVideosByCategory = async (id: number) => {
     //const { data, error } = await this.supabase.from('ad').select().eq('genre_id', id);
     const { data, error } =  await this.supabase.rpc('get_videos_from_category_id', {

@@ -7,6 +7,8 @@ import TopMenuSuffle from '../components/header/TopMenuSuffle.astro';
 
 import FootUWIFI from '../components/global/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
+import "@ionic/core/css/ionic.bundle.css";
+
 
 interface Props {
 	showNavBar?: boolean;
@@ -29,10 +31,14 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions />
+	
+		<script type="module" src="node_modules/@ionic/core/dist/ionic/ionic.esm.js"></script>
+		<script nomodule src="node_modules/@ionic/core/dist/ionic/ionic.js"></script>
+	
 	</head>
 	<header>
 
-		<!-- <RouterLinks  transition:persist client:only /> -->
+	<!-- 	<RouterLinks  transition:persist client:only /> -->
 		<!-- <TopMenuSuffle /> -->
 	</header>
 	<body>	
