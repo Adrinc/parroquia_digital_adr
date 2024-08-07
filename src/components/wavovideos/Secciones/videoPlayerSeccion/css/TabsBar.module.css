@@ -1,0 +1,26 @@
+.tabsBar {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .tabItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .tabItem.selected {
+    color: yellow;
+  }
+  
+  .tabItem span {
+    margin-top: 5px;
+  }
+  

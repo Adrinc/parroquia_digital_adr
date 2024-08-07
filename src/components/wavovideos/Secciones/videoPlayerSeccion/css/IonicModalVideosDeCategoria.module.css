@@ -4,6 +4,7 @@
   height: 100vh;
   border-radius: 24px;
   position: relative; /* Añadido para permitir posicionamiento relativo de los elementos hijos */
+
 }
 .header {
   position: fixed; /* Fija el encabezado en la parte superior del modal */

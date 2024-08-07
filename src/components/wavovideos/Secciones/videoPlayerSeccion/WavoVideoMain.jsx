@@ -3,6 +3,7 @@ import VideoPlayerSectionMobile from './WavoVideosSeccionMobile.jsx';
 import VideoPlayerSectionDesktop from './WavoVideosSeccionDesktop.jsx';
 import { IonApp } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import TabsBar from './widgets/TabsBar.jsx';
 
 
 const WavoVideoMain = () => {
@@ -17,6 +18,7 @@ const WavoVideoMain = () => {
   return isResponsive ? (
     <IonApp>
           <VideoPlayerSectionMobile client:only="react" />
+        {/*   <TabsBar /> */}
     </IonApp>
   ) : (
     <VideoPlayerSectionDesktop client:only="react"/>

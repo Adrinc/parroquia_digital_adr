@@ -33,7 +33,7 @@ export class VideoPlayerLogic {
   getAllVideosList = async () => {
   
     const { data, error } = await this.supabase.from('ad_in_gnre_view').select().eq('visible', true).order('genre_name', { ascending: true });
-
+    console.log(data);
     return data;
   }
   

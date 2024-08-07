@@ -4,6 +4,7 @@ import ReproductorVideoReactMobile from './widgets/ReproductorVideoReactMobile.j
 import { VideoPlayerLogic } from './typescript/video_player_logic.ts';
 import VPSMobileStyle from './css/wavoVideosSeccionMobile.module.css';
 import ListaIconosOpcionesMobile from './widgets/ListaIconosOpcionesMobile.jsx';
+import TabsBar from './widgets/TabsBar.jsx';
 
 const supa = new VideoPlayerLogic();
 
@@ -46,6 +47,17 @@ const WavoVideoMobile = () => {
     }, 500);
   };
 
+  const handlePlayButtonClick = (videos, initialVideoUrl) => {
+    const videoIndex = videos.findIndex(video => video.video_url === initialVideoUrl);
+    if (videoIndex !== -1) {
+      setVideoList(videos.slice(videoIndex).concat(videos.slice(0, videoIndex)));
+      setCurrentStartIndex(videoIndex + 5);
+    } else {
+      setVideoList(videos);
+      setCurrentStartIndex(5);
+    }
+  };
+
   return (
     <IonContent className={VPSMobileStyle.content}>
       <div className={VPSMobileStyle.section}>
@@ -58,7 +70,8 @@ const WavoVideoMobile = () => {
           <IonInfiniteScrollContent loadingText="Cargando más videos..."></IonInfiniteScrollContent>
         </IonInfiniteScroll>
       </div>
-      <ListaIconosOpcionesMobile client:only="react"/>
+      <ListaIconosOpcionesMobile onPlayButtonClick={handlePlayButtonClick} />
+      <TabsBar />
     </IonContent>
   );
 };
