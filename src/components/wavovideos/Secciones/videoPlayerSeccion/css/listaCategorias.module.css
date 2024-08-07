@@ -50,10 +50,10 @@ p {
 
 .selectedTarjeta {
 
-  box-shadow: 0 0 15px 5px #00ff1e; 
+  box-shadow: 0 0 15px 5px #d7de09;
 }
 
 .selectedText {
-  color: #00ff1e;
+  color: #d7de09;
 }
 

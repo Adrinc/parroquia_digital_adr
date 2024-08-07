@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import VideoPlayerSectionMobile from './WavoVideosSeccionMobile.jsx';
 import VideoPlayerSectionDesktop from './WavoVideosSeccionDesktop.jsx';
+import { IonApp } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
 
 
-const VideoPlayerSectionMain = () => {
+const WavoVideoMain = () => {
   const [isResponsive, setIsResponsive] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -13,10 +15,12 @@ const VideoPlayerSectionMain = () => {
   }, []);
 
   return isResponsive ? (
-    <VideoPlayerSectionMobile client:only="react" />
+    <IonApp>
+          <VideoPlayerSectionMobile client:only="react" />
+    </IonApp>
   ) : (
     <VideoPlayerSectionDesktop client:only="react"/>
   );
 };
 
-export default VideoPlayerSectionMain;
+export default WavoVideoMain;

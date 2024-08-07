@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { IonContent, IonInfiniteScroll, IonInfiniteScrollContent } from '@ionic/react';
-import ReproductorVideoReactMobile from './widgets/ReproductorVideoReactMobile';
+import ReproductorVideoReactMobile from './widgets/ReproductorVideoReactMobile.jsx';
 import { VideoPlayerLogic } from './typescript/video_player_logic.ts';
 import VPSMobileStyle from './css/wavoVideosSeccionMobile.module.css';
+import ListaIconosOpcionesMobile from './widgets/ListaIconosOpcionesMobile.jsx';
 
 const supa = new VideoPlayerLogic();
 
-const VideoPlayerSectionMobile = () => {
+const WavoVideoMobile = () => {
   const [allVideos, setAllVideos] = useState([]);
   const [videoList, setVideoList] = useState([]);
   const [currentStartIndex, setCurrentStartIndex] = useState(0);
@@ -57,8 +58,9 @@ const VideoPlayerSectionMobile = () => {
           <IonInfiniteScrollContent loadingText="Cargando más videos..."></IonInfiniteScrollContent>
         </IonInfiniteScroll>
       </div>
+      <ListaIconosOpcionesMobile client:only="react"/>
     </IonContent>
   );
 };
 
-export default VideoPlayerSectionMobile;
+export default WavoVideoMobile;

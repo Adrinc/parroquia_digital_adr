@@ -18,36 +18,22 @@ export class VideoPlayerLogic {
   getVideoCategories = async () => {
   
     const { data, error } = await this.supabase.from('genre_ad').select().eq('visible', true);
-/*     if (error) {
-      console.log(error);
-    } else {
-      console.log(data);
-    } */
+
     return data;
   }
 
   getVideosByCategory = async (id: number) => {
-    //const { data, error } = await this.supabase.from('ad').select().eq('genre_id', id);
     const { data, error } =  await this.supabase.rpc('get_videos_from_category_id', {
       'categoria_id': id
     }).select();
 
-  /*   const { data, error } = await this.supabase.from('ad_in_gnre_view').select().eq('genre_id', id); */
-/*     if (error) {
-      console.log(error);
-    } else {
-      console.log(data);
-    } */
+    console.log(data);
     return data;
   }
   getAllVideosList = async () => {
   
     const { data, error } = await this.supabase.from('ad_in_gnre_view').select().eq('visible', true).order('genre_name', { ascending: true });
-/*     if (error) {
-      console.log(error);
-    } else {
-      console.log(data);
-    } */
+
     return data;
   }
   

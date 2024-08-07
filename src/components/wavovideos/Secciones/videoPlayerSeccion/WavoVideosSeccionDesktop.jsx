@@ -5,12 +5,11 @@ import ListaVideos from './widgets/ListaVideos.jsx';
 import ReproductorVideoReact from './widgets/ReproductorVideoReact.jsx';
 import { VideoPlayerLogic } from './typescript/video_player_logic.ts';
 import VPSstyle from './css/wavoVideosSeccion.module.css'; 
-import IonicBoton from './widgets/ionic/IonicBoton.jsx';
-import ModalExample from './widgets/ionic/IonicModal.tsx';
+
 
 const supa = new VideoPlayerLogic();
 
-const VideoPlayerSection = () => {
+const WavoVideoDesktop = () => {
   const [videoItems, setVideoItems] = useState([]);
   const [videoList, setVideoList] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null); 
@@ -122,4 +121,4 @@ const VideoPlayerSection = () => {
   );
 };
 
-export default VideoPlayerSection;
+export default WavoVideoDesktop;

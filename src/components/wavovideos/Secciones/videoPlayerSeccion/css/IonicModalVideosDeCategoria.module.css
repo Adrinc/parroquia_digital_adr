@@ -1,0 +1,94 @@
+.block {
+  display: block;
+    width: 100%;
+    height: 100vh;
+    border-radius: 24px;
+  }
+  .carrusel {
+    width: 100%;
+    height: 30vh;
+    background-color: rgb(78, 125, 110);
+  }
+  .rower {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    background-color: blueviolet;
+     }
+     .swiper-pagination {
+      bottom: 10px; /* Ajusta la posición según sea necesario */
+      left: 0;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    
+    .swiper-pagination-bullet {
+      background: #007aff; /* Color de los bullets */
+      opacity: 1;
+    }
+    
+    .swiper-pagination-bullet-active {
+      background: #ff4081; /* Color del bullet activo */
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+    
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+
+
+     .columna {
+
+    background-color: rgb(255, 255, 255);
+     }
+
+    ion-col {
+    background-color: rgb(255, 255, 255);
+    }
+
+  
+
+    ion-content {
+    --background: #12126e;
+    width: 100%;
+  }
+
+
+    .iconContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  .icon {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .iconText {
+    margin-top: 5px;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  .icon svg {
+    width: 20px;
+    height: 20px;
+  }
