@@ -1,16 +1,40 @@
-import React, { useRef } from 'react';
-import {createAnimation,IonButtons,IonButton,IonModal,IonHeader,IonContent,IonToolbar,IonTitle,IonRow,IonGrid,IonCol} from '@ionic/react';
+import React, { useRef, useEffect, useState } from 'react';
+import { createAnimation, IonButtons, IonButton, IonModal, IonHeader, IonContent, IonToolbar, IonTitle, IonRow, IonGrid, IonCol } from '@ionic/react';
 import IMVCStyle from '../../css/IonicModalVideosDeCategoria.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { play } from 'ionicons/icons';
-
-import { IonFab, IonFabButton, IonIcon } from '@ionic/react';
+import { FaPlay } from 'react-icons/fa'; // Usar react-icons para el icono
 import 'swiper/css';
 import 'swiper/css/bundle';
 import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper/modules';
+import { VideoPlayerLogic } from '../../typescript/video_player_logic.ts';
 
-function IonicModalVideosDeCategoria() {
+const supa = new VideoPlayerLogic();
+
+interface Video {
+  video_id: number;
+  poster_path: string;
+  title: string;
+  video_url: string;
+}
+
+interface IonicModalVideosDeCategoriaProps {
+  selectedCategoryId: number | null;
+  selectedCategoryName: string | null;
+}
+
+const IonicModalVideosDeCategoria: React.FC<IonicModalVideosDeCategoriaProps> = ({ selectedCategoryId, selectedCategoryName }) => {
   const modal = useRef<HTMLIonModalElement>(null);
+  const [videos, setVideos] = useState<Video[]>([]);
+
+  useEffect(() => {
+    if (selectedCategoryId !== null) {
+      const fetchVideos = async () => {
+        const fetchedVideos = await supa.getVideosByCategory(selectedCategoryId);
+        setVideos(fetchedVideos);
+      };
+      fetchVideos();
+    }
+  }, [selectedCategoryId]);
 
   function dismiss() {
     modal.current?.dismiss();
@@ -42,87 +66,62 @@ function IonicModalVideosDeCategoria() {
   };
 
   return (
+    <IonModal
+      id="example-modal"
+      ref={modal}
+      trigger="videos-de-categoria"
+      enterAnimation={enterAnimation}
+      leaveAnimation={leaveAnimation}
+    >
+      <IonContent className={IMVCStyle.block}>
+        <IonHeader translucent={true} className={IMVCStyle.header}>
+          <IonToolbar>
+            <IonButtons slot="start">
+              <IonButton onClick={dismiss}>Regresar</IonButton>
+            </IonButtons>
+            <IonTitle>{selectedCategoryName}</IonTitle>
+          </IonToolbar>
+        </IonHeader>
 
+        <div className={IMVCStyle.carouselContainer}>
+          <Swiper
+            modules={[Autoplay, Keyboard, Pagination, Scrollbar, Zoom]}
+            autoplay={true}
+            keyboard={true}
+            pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
+            zoom={true}
+            className={IMVCStyle.carrusel}
+          >
+            {videos.map((video) => (
+              <SwiperSlide key={video.video_id} className={IMVCStyle.swiperSlide}>
+                <img src={video.poster_path} alt={video.title} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-
-    
-        <IonModal
-          id="example-modal"
-          ref={modal}
-          trigger="videos-de-categoria"
-          enterAnimation={enterAnimation}
-          leaveAnimation={leaveAnimation}
-        >
-    <IonContent className={IMVCStyle.block}>
-    
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonButton onClick={dismiss}>Regresar</IonButton>
-          </IonButtons>
-          <IonTitle>CategoriasVar</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-
-      <Swiper
-          modules={[Autoplay, Keyboard, Pagination, Scrollbar, Zoom]}
-          autoplay={true}
-          keyboard={true}
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
-          zoom={true}
-          className={IMVCStyle.carrusel}
-        >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-        </Swiper>
-
+          <div className={IMVCStyle.customButtonContainer}>
+            <button className={IMVCStyle.customButton} onClick={() => console.log("boton reproducir clickeado")}>
+              <FaPlay className={IMVCStyle.customButtonIcon} />
+            </button>
+          </div>
+        </div>
 
         <IonGrid>
           <IonRow className={IMVCStyle.rower}>
-            <IonCol>1</IonCol>
-            <IonCol>2</IonCol>
-            <IonCol>3</IonCol>
+            {videos.map((video) => (
+              <IonCol size="6" key={video.video_id} className={IMVCStyle.gridItem}>
+                <div className={IMVCStyle.card}>
+                  <img src={video.poster_path}  alt={video.title} onClick={() => console.log(video.video_url)} />
+                  <p>{video.title}</p>
+                </div>
+              </IonCol>
+            ))}
           </IonRow>
         </IonGrid>
-        <IonGrid>
-          <IonRow>
-            <IonCol>1</IonCol>
-            <IonCol>2</IonCol>
-            <IonCol>3</IonCol>
-            <IonCol>4</IonCol>
-            <IonCol>5</IonCol>
-            <IonCol>6</IonCol>
-          </IonRow>
-        </IonGrid>
-        <IonGrid>
-          <IonRow>
-            <IonCol>1</IonCol>
-            <IonCol>2</IonCol>
-            <IonCol>3</IonCol>
-            <IonCol>4</IonCol>
-            <IonCol>5</IonCol>
-            <IonCol>6</IonCol>
-            <IonCol>7</IonCol>
-            <IonCol>8</IonCol>
-            <IonCol>9</IonCol>
-            <IonCol>10</IonCol>
-            <IonCol>11</IonCol>
-            <IonCol>12</IonCol>
-          </IonRow>
-        </IonGrid>
-
-        <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton color="primary" onClick={() => console.log("boton reproducir clickeado")}>
-            <IonIcon icon={play} />
-          </IonFabButton>
-        </IonFab>
       </IonContent>
-        </IonModal>
-   
-    
+    </IonModal>
   );
-}
+};
 
 export default IonicModalVideosDeCategoria;

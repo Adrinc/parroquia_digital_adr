@@ -1,94 +1,143 @@
 .block {
   display: block;
-    width: 100%;
-    height: 100vh;
-    border-radius: 24px;
-  }
-  .carrusel {
-    width: 100%;
-    height: 30vh;
-    background-color: rgb(78, 125, 110);
-  }
-  .rower {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    background-color: blueviolet;
-     }
-     .swiper-pagination {
-      bottom: 10px; /* Ajusta la posición según sea necesario */
-      left: 0;
-      width: 100%;
-      text-align: center;
-      z-index: 10;
-    }
-    
-    .swiper-pagination-bullet {
-      background: #007aff; /* Color de los bullets */
-      opacity: 1;
-    }
-    
-    .swiper-pagination-bullet-active {
-      background: #ff4081; /* Color del bullet activo */
-    }
+  width: 100%;
+  height: 100vh;
+  border-radius: 24px;
+  position: relative; /* Añadido para permitir posicionamiento relativo de los elementos hijos */
+}
+.header {
+  position: fixed; /* Fija el encabezado en la parte superior del modal */
+  top: 0; /* Alinea el encabezado en la parte superior */
+  left: 0; /* Alinea el encabezado en la parte izquierda */
+  width: 100%; /* Asegura que el encabezado ocupe el ancho completo */
+  z-index: 1000; /* Asegura que el encabezado esté por encima del contenido */
+}
 
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-    }
-    
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-    }
+.carrusel {
+  width: 100%;
+  height: 40vh; /* O ajusta esto según tus necesidades */
+  position: relative;
+  overflow: hidden; /* Asegúrate de que el contenido que se desborda se oculte */
+  border-bottom-left-radius: 24px; /* Ajusta el radio si lo deseas */
+}
+
+.rower {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
 
 
-     .columna {
-
-    background-color: rgb(255, 255, 255);
-     }
-
-    ion-col {
-    background-color: rgb(255, 255, 255);
-    }
-
-  
-
-    ion-content {
-    --background: #12126e;
-    width: 100%;
-  }
+.swiperSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 
-    .iconContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px 0;
-    cursor: pointer;
-  }
-  
-  .icon {
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-  }
-  
-  .iconText {
-    margin-top: 5px;
-    color: white;
-    font-size: 12px;
-    text-align: center;
-  }
-  
-  .icon svg {
-    width: 20px;
-    height: 20px;
-  }
+
+.columna {
+  background-color: rgb(255, 255, 255);
+}
+
+ion-col {
+  background-color: rgb(255, 255, 255);
+}
+
+ion-content {
+  --background: #ffffff;
+  width: 100%;
+}
+
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.icon {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.iconText {
+  margin-top: 5px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.gridItem {
+  padding: 10px;
+}
+
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  height: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Ajusta la altura según sea necesario */
+  object-fit: cover;
+  border-bottom: 1px solid #13ce1f;
+}
+
+.card p {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+
+/* CUSTOM BUTTOM */
+
+/* Añadir el estilo para el botón personalizado */
+.carouselContainer {
+  position: relative; /* Contenedor relativo para que el botón se posicione en relación a este contenedor */
+}
+
+.customButtonContainer {
+  position: absolute; /* Posiciona el botón encima del contenido del carrusel */
+  bottom: 30px; /* Ajusta la distancia desde la parte inferior */
+  right: 30px; /* Ajusta la distancia desde la derecha */
+  z-index: 1000; /* Asegura que el botón esté por encima del contenido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customButton {
+  background-color: #007aff; /* Color azul para el botón */
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.customButtonIcon {
+  color: #ffffff; /* Color amarillo para el icono */
+  font-size: 20px;
+}

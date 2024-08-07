@@ -15,7 +15,7 @@ import modalStyles from '../css/CategoriasModal.module.css';
 
 const supa = new VideoPlayerLogic();
 
-const CategoriasModal = () => {
+const CategoriasModal = ({ onCategorySelect }) => {
   const modal = useRef(null);
   const [categories, setCategories] = useState([]);
 
@@ -27,10 +27,9 @@ const CategoriasModal = () => {
     fetchCategories();
   }, []);
 
-
-
-  const handleItemClick = (categoryName) => {
-    console.log(`Category clicked: ${categoryName}`);
+  const handleItemClick = (categoryId, categoryName) => {
+    onCategorySelect(categoryId, categoryName);
+    modal.current?.dismiss();
   };
 
   return (
@@ -38,16 +37,16 @@ const CategoriasModal = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Categorías</IonTitle>
-          <IonButton slot="end" onClick={()=>  modal.current?.dismiss()}>Cerrar</IonButton>
+          <IonButton slot="end" onClick={() => modal.current?.dismiss()}>Cerrar</IonButton>
         </IonToolbar>
       </IonHeader>
       <IonContent className={modalStyles.block}>
         <IonList>
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <IonItem 
-              key={index} 
+              key={category.id} 
               color="dark" 
-              onClick={() => handleItemClick(category.name)} 
+              onClick={() => handleItemClick(category.id, category.name)} 
               className={modalStyles.categoryItem}
             >
               <IonThumbnail slot="start">

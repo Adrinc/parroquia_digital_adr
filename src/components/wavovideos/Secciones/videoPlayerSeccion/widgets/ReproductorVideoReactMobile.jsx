@@ -44,6 +44,7 @@ const ReproductorVideoReactMobile = ({ url }) => {
       controls
       autoPlay
       muted
+      loop
       className={VideoStyle.videoPlayer}
     />
   );
