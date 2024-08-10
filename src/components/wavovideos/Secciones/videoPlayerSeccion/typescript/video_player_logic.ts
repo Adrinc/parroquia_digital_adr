@@ -36,5 +36,23 @@ export class VideoPlayerLogic {
     console.log(data);
     return data;
   }
+  //crea un funcion que reciba un id de categoria y un id de video y devuelva todos los videos de esa categoria pero el primer video sea el que tenga el id que se le paso de la funcion get_videos_from_category_id
+  getVideosByCategoryAndVideo = async (id: number, videoId: number) => {
+    const { data, error } =  await this.supabase.rpc('get_videos_from_category_id', {
+      'categoria_id': id
+    }).select();
+    console.log(data);
+
+    const videoIndex = data.findIndex((video: any) => video.id === videoId);
+    console.log(videoIndex);
+
+    /* haz que el el primer video de la lista sea el del videoId recibido */
+    const video = data[videoIndex];
+    data.splice(videoIndex, 1);
+    data.unshift(video);
+    
+
+    return data;
+  }
   
 }

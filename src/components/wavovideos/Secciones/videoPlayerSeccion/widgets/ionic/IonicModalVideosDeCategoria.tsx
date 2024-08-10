@@ -1,8 +1,9 @@
+// IonicModalVideosDeCategoria.tsx
 import React, { useRef, useEffect, useState } from 'react';
 import { createAnimation, IonButtons, IonButton, IonModal, IonHeader, IonContent, IonToolbar, IonTitle, IonRow, IonGrid, IonCol } from '@ionic/react';
 import IMVCStyle from '../../css/IonicModalVideosDeCategoria.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FaPlay } from 'react-icons/fa'; // Usar react-icons para el icono
+import { FaPlay } from 'react-icons/fa';
 import 'swiper/css';
 import 'swiper/css/bundle';
 import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper/modules';
@@ -20,9 +21,14 @@ interface Video {
 interface IonicModalVideosDeCategoriaProps {
   selectedCategoryId: number | null;
   selectedCategoryName: string | null;
+  onPlayButtonClick: (videos: Video[], initialVideoUrl?: string) => void;
 }
 
-const IonicModalVideosDeCategoria: React.FC<IonicModalVideosDeCategoriaProps> = ({ selectedCategoryId, selectedCategoryName }) => {
+const IonicModalVideosDeCategoria: React.FC<IonicModalVideosDeCategoriaProps> = ({
+  selectedCategoryId,
+  selectedCategoryName,
+  onPlayButtonClick,
+}) => {
   const modal = useRef<HTMLIonModalElement>(null);
   const [videos, setVideos] = useState<Video[]>([]);
 
@@ -39,6 +45,18 @@ const IonicModalVideosDeCategoria: React.FC<IonicModalVideosDeCategoriaProps> = 
   function dismiss() {
     modal.current?.dismiss();
   }
+
+  const handlePlayButtonClick = () => {
+    if (videos.length > 0) {
+      onPlayButtonClick(videos);
+      dismiss();  // Cierra el modal después de hacer clic en el botón de reproducción
+    }
+  };
+
+  const handleVideoClick = (videoUrl: string) => {
+    onPlayButtonClick(videos, videoUrl);
+    dismiss();  // Cierra el modal después de hacer clic en una opción de video
+  };
 
   const enterAnimation = (baseEl: HTMLElement) => {
     const root = baseEl.shadowRoot;
@@ -101,7 +119,7 @@ const IonicModalVideosDeCategoria: React.FC<IonicModalVideosDeCategoriaProps> = 
           </Swiper>
 
           <div className={IMVCStyle.customButtonContainer}>
-            <button className={IMVCStyle.customButton} onClick={() => console.log("boton reproducir clickeado")}>
+            <button className={IMVCStyle.customButton} onClick={handlePlayButtonClick}>
               <FaPlay className={IMVCStyle.customButtonIcon} />
             </button>
           </div>
@@ -112,7 +130,11 @@ const IonicModalVideosDeCategoria: React.FC<IonicModalVideosDeCategoriaProps> = 
             {videos.map((video) => (
               <IonCol size="6" key={video.video_id} className={IMVCStyle.gridItem}>
                 <div className={IMVCStyle.card}>
-                  <img src={video.poster_path}  alt={video.title} onClick={() => console.log(video.video_url)} />
+                  <img
+                    src={video.poster_path}
+                    alt={video.title}
+                    onClick={() => handleVideoClick(video.video_url)}
+                  />
                   <p>{video.title}</p>
                 </div>
               </IonCol>

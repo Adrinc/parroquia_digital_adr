@@ -1,3 +1,4 @@
+// WavoVideosSeccionMobile.jsx
 import React, { useState, useEffect } from 'react';
 import { IonContent, IonInfiniteScroll, IonInfiniteScrollContent } from '@ionic/react';
 import ReproductorVideoReactMobile from './widgets/ReproductorVideoReactMobile.jsx';
@@ -47,15 +48,14 @@ const WavoVideoMobile = () => {
     }, 500);
   };
 
-  const handlePlayButtonClick = (videos, initialVideoUrl) => {
-    const videoIndex = videos.findIndex(video => video.video_url === initialVideoUrl);
-    if (videoIndex !== -1) {
-      setVideoList(videos.slice(videoIndex).concat(videos.slice(0, videoIndex)));
-      setCurrentStartIndex(videoIndex + 5);
-    } else {
-      setVideoList(videos);
-      setCurrentStartIndex(5);
-    }
+  // Función para actualizar la lista de reproducción
+  const handlePlayButtonClick = (videos, initialVideoUrl = null) => {
+    const videoIndex = initialVideoUrl
+      ? videos.findIndex((video) => video.video_url === initialVideoUrl)
+      : 0;
+      
+    setVideoList(videos.slice(videoIndex).concat(videos.slice(0, videoIndex)));
+    setCurrentStartIndex(videoIndex + 5);
   };
 
   return (

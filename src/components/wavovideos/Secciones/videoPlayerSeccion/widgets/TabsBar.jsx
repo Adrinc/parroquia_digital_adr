@@ -41,38 +41,3 @@ const TabsBar = () => {
 };
 
 export default TabsBar;
-
-
-/* import React, { useState } from 'react';
-import { FaHome, FaCompass } from 'react-icons/fa';
-import styles from '../css/TabsBar.module.css';
-
-const TabsBar = () => {
-  const [selectedTab, setSelectedTab] = useState('home');
-
-  const handleTabClick = (tab) => {
-    setSelectedTab(tab);
-    console.log(`Selected tab: ${tab}`);
-  };
-
-  return (
-    <div className={styles.tabsBar}>
-      <div
-        className={`${styles.tabItem} ${selectedTab === 'home' ? styles.selected : ''}`}
-        onClick={() => handleTabClick('home')}
-      >
-        <FaHome />
-        <span>Home</span>
-      </div>
-      <div
-        className={`${styles.tabItem} ${selectedTab === 'discovery' ? styles.selected : ''}`}
-        onClick={() => handleTabClick('discovery')}
-      >
-        <FaCompass />
-        <span>Discovery</span>
-      </div>
-    </div>
-  );
-};
-
-export default TabsBar; */
