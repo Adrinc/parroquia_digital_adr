@@ -10,11 +10,15 @@ const ReproductorVideoReactMobile = ({ url }) => {
     const handlePlayPause = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          videoElement.play().catch((error) => {
-            console.error('Error playing video:', error);
-          });
+          if (videoElement.paused) {
+            videoElement.play().catch((error) => {
+              console.error('Error playing video:', error);
+            });
+          }
         } else {
-          videoElement.pause();
+          if (!videoElement.paused) {
+            videoElement.pause();
+          }
         }
       });
     };
@@ -24,10 +28,14 @@ const ReproductorVideoReactMobile = ({ url }) => {
       threshold: 0.5,
     });
 
-    observer.observe(videoElement);
+    if (videoElement) {
+      observer.observe(videoElement);
+    }
 
     return () => {
-      observer.unobserve(videoElement);
+      if (videoElement) {
+        observer.unobserve(videoElement);
+      }
     };
   }, [url]);
 
@@ -42,7 +50,6 @@ const ReproductorVideoReactMobile = ({ url }) => {
     <video
       ref={videoRef}
       controls
-      autoPlay
       muted
       loop
       className={VideoStyle.videoPlayer}
