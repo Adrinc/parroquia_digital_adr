@@ -1,4 +1,3 @@
-// WavoVideosSeccionMobile.jsx
 import React, { useState, useEffect } from 'react';
 import { IonContent, IonInfiniteScroll, IonInfiniteScrollContent } from '@ionic/react';
 import ReproductorVideoReactMobile from './widgets/ReproductorVideoReactMobile.jsx';
@@ -13,6 +12,8 @@ const WavoVideoMobile = () => {
   const [allVideos, setAllVideos] = useState([]);
   const [videoList, setVideoList] = useState([]);
   const [currentStartIndex, setCurrentStartIndex] = useState(0);
+  const [selectedCategoryVideos, setSelectedCategoryVideos] = useState(null); // Estado para la categoría seleccionada
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchInitialVideos = async () => {
@@ -25,20 +26,21 @@ const WavoVideoMobile = () => {
   }, []);
 
   const fetchMoreVideos = () => {
+    if (loading) return;
+    setLoading(true);
+
+    const sourceVideos = selectedCategoryVideos || allVideos;
     let newStartIndex = currentStartIndex;
-    let newVideos = allVideos.slice(newStartIndex, newStartIndex + 5);
+    let newVideos = sourceVideos.slice(newStartIndex, newStartIndex + 5);
 
-    if (newVideos.length === 0) {
-      newStartIndex = 0;
-      newVideos = allVideos.slice(newStartIndex, newStartIndex + 5);
+    if (newVideos.length > 0) {
+      setVideoList(prevVideoList => [...prevVideoList, ...newVideos]);
+      setCurrentStartIndex(newStartIndex + 5);
+    } else if (newStartIndex >= sourceVideos.length) {
+      setCurrentStartIndex(0);
     }
 
-    setVideoList(prevVideoList => [...prevVideoList, ...newVideos]);
-    setCurrentStartIndex(newStartIndex + 5);
-
-    if (newStartIndex + 5 >= allVideos.length) {
-      newStartIndex = 0;
-    }
+    setLoading(false);
   };
 
   const loadMoreData = (event) => {
@@ -53,7 +55,8 @@ const WavoVideoMobile = () => {
     const videoIndex = initialVideoUrl
       ? videos.findIndex((video) => video.video_url === initialVideoUrl)
       : 0;
-      
+
+    setSelectedCategoryVideos(videos); // Actualizamos la categoría seleccionada
     setVideoList(videos.slice(videoIndex).concat(videos.slice(0, videoIndex)));
     setCurrentStartIndex(videoIndex + 5);
   };

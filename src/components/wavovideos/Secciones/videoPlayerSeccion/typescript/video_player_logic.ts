@@ -27,13 +27,13 @@ export class VideoPlayerLogic {
       'categoria_id': id
     }).select();
 
-    console.log(data);
+ 
     return data;
   }
   getAllVideosList = async () => {
   
     const { data, error } = await this.supabase.from('ad_in_gnre_view').select().eq('visible', true).order('genre_name', { ascending: true });
-    console.log(data);
+   
     return data;
   }
   //crea un funcion que reciba un id de categoria y un id de video y devuelva todos los videos de esa categoria pero el primer video sea el que tenga el id que se le paso de la funcion get_videos_from_category_id
@@ -41,7 +41,7 @@ export class VideoPlayerLogic {
     const { data, error } =  await this.supabase.rpc('get_videos_from_category_id', {
       'categoria_id': id
     }).select();
-    console.log(data);
+
 
     const videoIndex = data.findIndex((video: any) => video.id === videoId);
     console.log(videoIndex);
@@ -50,7 +50,6 @@ export class VideoPlayerLogic {
     const video = data[videoIndex];
     data.splice(videoIndex, 1);
     data.unshift(video);
-    
 
     return data;
   }
